@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "description": "Aggregate-only projections of saved result summaries. No raw model outputs, per-task answer data, or complete raw ledgers are redistributed.",
+  "when2call": {
+    "granite_thinking_on": {
+      "source_archive_member": "runs/benchmarks/monkeys-passk-frontloop/when2call-granite-summary.json",
+      "source_sha256": "d4b9f93833c24cf579b902d5cbe3d9f359d88393ed14c7a8b825cc39fb6879fa",
+      "n_items": 40,
+      "n_attempts": 320,
+      "format_correct": 308,
+      "action_correct": 199
+    },
+    "granite_thinking_off": {
+      "source_archive_member": "runs/benchmarks/monkeys-passk-frontloop/when2call-granite-armT-summary.json",
+      "source_sha256": "2e7009a82a7a410f5b562e4b862b9197bc89c50605c7fb49d29ca0b3fa315c1d",
+      "n_items": 40,
+      "n_attempts": 320,
+      "format_correct": 311,
+      "action_correct": 208
+    },
+    "ministral": {
+      "source_archive_member": "runs/benchmarks/monkeys-passk-frontloop/when2call-ministral-summary.json",
+      "source_sha256": "60f7db8169a2324d30075da9fd93950add400cf62215be4f58e2ee9e50c34a5c",
+      "n_items": 40,
+      "n_attempts": 320,
+      "format_correct": 317,
+      "action_correct": 132
+    }
+  },
+  "locbench": {
+    "granite_strict": {
+      "source_archive_member": "runs/benchmarks/monkeys-passk-frontloop/loc-arms.json",
+      "source_pointer": "armA_common",
+      "source_sha256": "03e983d248bf4da82a6abf4cbe26445cffe5997e01b0cd228d724c61ec7702e1",
+      "n_items": 28,
+      "n_attempts": 224,
+      "terminals": {
+        "final": 6,
+        "format_stop": 194,
+        "tool_cap": 24
+      },
+      "file_correct": 6,
+      "function_correct": 4
+    },
+    "granite_relaxed": {
+      "source_archive_member": "runs/benchmarks/monkeys-passk-frontloop/loc-arms.json",
+      "source_pointer": "armB_common",
+      "source_sha256": "03e983d248bf4da82a6abf4cbe26445cffe5997e01b0cd228d724c61ec7702e1",
+      "n_items": 28,
+      "n_attempts": 224,
+      "terminals": {
+        "final": 21,
+        "format_stop": 116,
+        "tool_cap": 87
+      },
+      "file_correct": 21,
+      "function_correct": 17
+    },
+    "granite_native_xml": {
+      "source_archive_member": "runs/benchmarks/monkeys-passk-frontloop/loc-granite-armC-summary.json",
+      "source_sha256": "69b4518a6d85a36cede9e1c06553dde8ebe8d898edf58f501647903c1cbae0c4",
+      "n_items": 28,
+      "n_attempts": 224,
+      "terminals": {
+        "final": 38,
+        "format_stop": 57,
+        "tool_cap": 129
+      },
+      "file_correct": 34,
+      "function_correct": 24
+    },
+    "ministral_json": {
+      "source_archive_member": "runs/benchmarks/monkeys-passk-frontloop/loc-ministral-armM-summary.json",
+      "source_sha256": "86250549ed3b4d442ac2f7dd812bc5cd0603ee954aae8a7a7b991b4079cb4dc7",
+      "n_items": 28,
+      "n_attempts": 224,
+      "terminals": {
+        "final": 100,
+        "tool_cap": 90,
+        "format_stop": 34
+      },
+      "file_correct": 36,
+      "function_correct": 7
+    }
+  }
+}

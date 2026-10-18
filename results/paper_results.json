@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "paper": "CISC-W_2026_paper__196.pdf",
+  "description": "Publication tables transcribed from the provided 196 reference PDF and cross-checked against saved aggregate summaries. This file is not a new inference run.",
+  "locbench": {
+    "n_items": 28,
+    "replicates_per_item": 8,
+    "attempts_per_condition": 224,
+    "conditions": [
+      {
+        "key": "granite_strict",
+        "label": "Granite JSON (strict)",
+        "format_stop": 194,
+        "tool_cap": 24,
+        "final": 6,
+        "file_correct": 6,
+        "function_correct": 4
+      },
+      {
+        "key": "granite_relaxed",
+        "label": "Granite JSON (parser-relaxed)",
+        "format_stop": 116,
+        "tool_cap": 87,
+        "final": 21,
+        "file_correct": 21,
+        "function_correct": 17
+      },
+      {
+        "key": "granite_native_xml",
+        "label": "Granite native XML",
+        "format_stop": 57,
+        "tool_cap": 129,
+        "final": 38,
+        "file_correct": 34,
+        "function_correct": 24
+      },
+      {
+        "key": "ministral_json",
+        "label": "Ministral JSON",
+        "format_stop": 34,
+        "tool_cap": 90,
+        "final": 100,
+        "file_correct": 36,
+        "function_correct": 7
+      }
+    ]
+  },
+  "when2call": {
+    "n_items": 40,
+    "replicates_per_item": 8,
+    "attempts_per_condition": 320,
+    "conditions": [
+      {
+        "key": "granite_thinking_on",
+        "label": "Granite thinking on",
+        "format_correct": 308,
+        "action_correct": 199
+      },
+      {
+        "key": "granite_thinking_off",
+        "label": "Granite thinking off",
+        "format_correct": 311,
+        "action_correct": 208
+      },
+      {
+        "key": "ministral",
+        "label": "Ministral",
+        "format_correct": 317,
+        "action_correct": 132
+      }
+    ]
+  },
+  "interpretation": {
+    "final": "Final-answer submission; correctness is scored separately.",
+    "function_accuracy": "Exact match to a reference code-location path and function name, divided by all assigned attempts.",
+    "parser_relaxed": "Post-hoc diagnostic condition; archived repair code additionally contains trailing-comma removal.",
+    "native_xml": "Separate comparison with a different output notation and prompted tool list.",
+    "tool_cap": "Tool budget exhaustion; underlying cause is not identified by the terminal label alone.",
+    "aggregate_comparison": "Condition-level differences do not establish per-attempt state transitions."
+  }
+}

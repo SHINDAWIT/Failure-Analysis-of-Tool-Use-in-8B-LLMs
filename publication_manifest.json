@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "source_archive": {
+    "filename": "cisc-w26-wsl-transfer.zip",
+    "sha256": "48059eabc20b52d536d4eeeb3cf2dc5e334aa59991c24e1e524d9315c12d619d"
+  },
+  "unchanged_files": [
+    {
+      "path": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/client.py",
+      "archive_member": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/client.py",
+      "sha256": "7dec064dda07e12cff023f6ed6ddfaf5516f08b8268624843147dd3e4fc6eaf9"
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/evaluator.py",
+      "archive_member": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/evaluator.py",
+      "sha256": "482cb423b4734732f882149c4e23f98bcb0178c44c89ae585dbff8d9a5f47e13"
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/harness.py",
+      "archive_member": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/harness.py",
+      "sha256": "bb299808b86e05618afecadbed92648336e45158b5225a7cb36dd5466f114c96"
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/loc_env.py",
+      "archive_member": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/loc_env.py",
+      "sha256": "d9da2471d7776c4292dcad96807eed3bf3c1ce1e0b591c9b207cb54c3aa62c6a"
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/loc_harness.py",
+      "archive_member": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/loc_harness.py",
+      "sha256": "a1b21627d02aff04a84ae5cc2998040514205941fb0a26a381d82ecf9fad0994"
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/loc_native.py",
+      "archive_member": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/loc_native.py",
+      "sha256": "537cc29073d58cc091f06977f81e7d841b19afc23ae0cdb6ed7079ca3d75db3c"
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/loc_prompts.py",
+      "archive_member": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/loc_prompts.py",
+      "sha256": "99c43ed6c7c9712a80b3bc7089852876403ded5a3d131b7b6b578a53501e52e1"
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/prompts.py",
+      "archive_member": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/prompts.py",
+      "sha256": "cdaa5ff201da9375f00454ac201f18cd380cb5a85019bfc3b2d031f0afd372cd"
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/schema.py",
+      "archive_member": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/schema.py",
+      "sha256": "f17794170691274b56e47348d823cb07790ca7f6fe0d4be307205f9cc2e8d6ed"
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/__init__.py",
+      "archive_member": "experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/__init__.py",
+      "sha256": "432072a5fbd1d24fb68664c005f28b2a9b729cd9e625480b51ca9fe5c553df98"
+    },
+    {
+      "path": "scripts/run_frontloop_when2call.py",
+      "archive_member": "scripts/run_frontloop_when2call.py",
+      "sha256": "730220b95afdb182a94b2dd2e039aae8f6fb5ba246bf797b24758ee6dc3be0ae"
+    },
+    {
+      "path": "scripts/run_frontloop_loc.py",
+      "archive_member": "scripts/run_frontloop_loc.py",
+      "sha256": "d00125b1c9fbffbb84215fcaaecaef48bce584c725ff66d9df87d62b511812fe"
+    },
+    {
+      "path": "scripts/score_loc_arms.py",
+      "archive_member": "scripts/score_loc_arms.py",
+      "sha256": "9492fb06b1950686ca5a37853bd49568d0134a55acc51097ae8f2aaa730acbba"
+    },
+    {
+      "path": "scripts/score_arms_when2call.py",
+      "archive_member": "scripts/score_arms_when2call.py",
+      "sha256": "e977cda1d525e4f546eb2bc73a7cb51a52f97185cc4fff31e2cf611e6e8599cf"
+    },
+    {
+      "path": "scripts/materialize_when2call.py",
+      "archive_member": "scripts/materialize_when2call.py",
+      "sha256": "d4a094a9a515c3501d707f9ffc95869f459e2ee3867c7ed722b1ea43adfdbf44"
+    },
+    {
+      "path": "scripts/materialize_locbench.py",
+      "archive_member": "scripts/materialize_locbench.py",
+      "sha256": "ce85c773caced799963d74a0f23fd72210ba1056076d000db267072fcb35b163"
+    },
+    {
+      "path": "scripts/clone_locbench.py",
+      "archive_member": "scripts/clone_locbench.py",
+      "sha256": "6fbf5d2dab80c24c171ca3bc7f8b4f08de8258432b284f290a5baedf414c8b0a"
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/spec/loc_tools.json",
+      "archive_member": "experiments/monkeys-passk-frontloop/spec/loc_tools.json",
+      "sha256": "06a9001336e890693bf77786085d6e949fa1c7e901bcde395e6f0d780d991839"
+    },
+    {
+      "path": "docs/assets/loc-termination.png",
+      "archive_member": "paper/cisc-w26-evidence/figures/fig3-loc-terminals.png",
+      "sha256": "5ff00abacd7209a6b0696ab1d9b3819f34a23b180187d0906dcefd852e3f08c0"
+    },
+    {
+      "path": "scripts/test_native_parser_symmetry.py",
+      "archive_member": "scripts/test_native_parser_symmetry.py",
+      "sha256": "fab1e00fc0b573e14c3f89a6c911c3d9b7ef4c37c858258b78418563cfe8376f"
+    },
+    {
+      "path": "scripts/test_frontloop_p0.py",
+      "archive_member": "scripts/test_frontloop_p0.py",
+      "sha256": "94607dc54d9ec15b857063db2557e3091abae4f876d719be45aa9285c8e7253a"
+    }
+  ],
+  "publication_derived_files": [
+    {
+      "path": "docs/project-summary.ko.md",
+      "kind": "Recruitment summary prepared separately from historical experiment code."
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/spec/f0.json",
+      "source_archive_member": "experiments/monkeys-passk-frontloop/spec/f0.json",
+      "source_sha256": "4cbe9fdd70c876dee2d85af7d5d738b18deb32aa74e74f5fcb18183438b0fa1d",
+      "changes": [
+        "Retain experiment settings consumed by source code.",
+        "Replace local Windows model paths with relative models/ paths.",
+        "Remove historical planning/editorial metadata; mark as a publication template."
+      ]
+    },
+    {
+      "path": "experiments/monkeys-passk-frontloop/spec/selected.json",
+      "source_archive_member": "experiments/monkeys-passk-frontloop/spec/selected.json",
+      "source_sha256": "3677ebcc936215dfcbc2018f6d0824939227924026f453804cd85ca286be7399",
+      "changes": [
+        "Publish only benchmark identifiers and selection metadata for When2Call and Loc-Bench Security.",
+        "Keep the original 29-item selection and explicitly mark the one-item exclusion for the common 28-item comparison."
+      ]
+    }
+  ],
+  "paper": {
+    "path": "CISC-W_2026_paper__196.pdf",
+    "provided_filename": "CISC-W_2026_paper__196 (2).pdf",
+    "sha256": "5525083fde90dafcf724f1cf0dbd9093da4c0f03d5cfce81b88eb3254e7a8310",
+    "selection_note": "Provided reference PDF; filename normalization does not establish acceptance or final-submission status."
+  }
+}

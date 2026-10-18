@@ -1,0 +1,43 @@
+{
+  "tools": {
+    "list_dir": {
+      "required": ["path"],
+      "properties": {
+        "path": "string"
+      }
+    },
+    "read_file": {
+      "required": ["path"],
+      "properties": {
+        "path": "string",
+        "start": "number",
+        "end": "number"
+      },
+      "defaults": {
+        "start": 1,
+        "end": 40
+      }
+    },
+    "grep": {
+      "required": ["pattern"],
+      "properties": {
+        "pattern": "string",
+        "path": "string"
+      }
+    },
+    "run": {
+      "required": [],
+      "properties": {
+        "target": "string"
+      },
+      "constraints": {
+        "target": ["test"]
+      }
+    }
+  },
+  "final": {
+    "shape": "path::func",
+    "example": "src/auth.py::check_token"
+  },
+  "disallow": ["arbitrary_shell", "write", "network"]
+}

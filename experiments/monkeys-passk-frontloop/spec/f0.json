@@ -1,0 +1,93 @@
+{
+  "dataset_when2call": {
+    "name": "When2Call llm_judge",
+    "citation": "Ross et al. NAACL 2025",
+    "hf": "nvidia/When2Call",
+    "split": "test/when2call_test_llm_judge.jsonl",
+    "snapshot": "0582f7749df63a96fdc3070932e83e72396ace53",
+    "split_n": 300,
+    "selected_n": 40,
+    "id_file": "spec/selected.json",
+    "selection_rule": "round-robin across gold labels, uuid sorted within label, n=40; IDs frozen in frontloop-published-subset-v0"
+  },
+  "dataset_loc": {
+    "name": "Loc-Bench V1 Security Vulnerability",
+    "citation": "Chen et al. ACL 2025 LocAgent",
+    "selected_n": 29,
+    "selection_rule": "all official Security Vulnerability rows; do not drop django/HA/pip for size"
+  },
+  "sampling": {
+    "N": 8,
+    "k": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "passk_estimator": "chen2021_unbiased"
+  },
+  "metrics": {
+    "when2call_format": "canonical JSON with action in {tool_call, request_for_info, cannot_answer}; coffee-style {tool,args} aliases to tool_call",
+    "when2call_semantic": "predicted action == gold correct_answer; tool name match is secondary only",
+    "loc_format": "canonical JSON tool+args or final path::func",
+    "loc_file": "gold file path match",
+    "loc_func": "gold path::func match",
+    "never_merge_format_semantic": true
+  },
+  "runtime": {
+    "quant": "Q5_K_M",
+    "imatrix": false,
+    "q4_fallback_rule": "only if BOTH models OOM",
+    "q4_fallback_active": false,
+    "one_model_on_gpu": true,
+    "device": "RTX 5070 12GB",
+    "n_ctx": 8192,
+    "n_predict": 2048,
+    "wall_time_s": 180,
+    "ngl": 99,
+    "seed_field": "replicate_id",
+    "max_model_calls_when2call": 1,
+    "reproducibility_claim": false
+  },
+  "profiles": {
+    "granite": {
+      "hf": "ibm-granite/granite-4.2-8b",
+      "revision": "f8de16cdcdbc6c779ca517604e050d82cc119e44",
+      "gguf": "models/granite-4.2-8b-Q5_K_M.gguf",
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "repeat_penalty": 1.0,
+      "reasoning": "on"
+    },
+    "ministral": {
+      "hf": "mistralai/Ministral-8B-Instruct-2410",
+      "revision": "2f494a194c5b980dfb9772cb92d26cbb671fce5a",
+      "gguf": "models/Ministral-8B-Instruct-2410-Q5_K_M.gguf",
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "repeat_penalty": 1.0,
+      "reasoning": "off"
+    }
+  },
+  "independent": {
+    "arm": "A",
+    "reset": "fresh prompt, no history, no tool execution",
+    "replicate_id": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "itt": {
+    "include_all_assigned": true,
+    "timeout_or_length_or_infra": "format=0 semantic=0 in primary",
+    "rerun": "new id; never overwrite a failure with a later success"
+  },
+  "assignment_id": "{uuid}:{model}:{arm}:{replicate_id}",
+  "_publication_note": "Portable configuration template derived from the archived f0.json. Local model paths and editorial metadata were adjusted for publication; this is not an untouched historical run manifest."
+}

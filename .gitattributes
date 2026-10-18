@@ -1,0 +1,6 @@
+*.md text eol=lf
+*.json text eol=lf
+*.py -text
+experiments/** -text
+*.pdf binary
+*.png binary
