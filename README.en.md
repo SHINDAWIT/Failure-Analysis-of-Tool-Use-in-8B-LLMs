@@ -4,7 +4,7 @@
 
 This research separates local 8B LLM tool-use failures into **format compliance, action selection, and execution termination**. A final failure rate can combine several different problems; identifying the observed failure point helps determine what to inspect next.
 
-The repository presents research conducted by the author: experiment execution, failure analysis, diagnostic comparisons, and interpretation. It does not assert sole authorship of every source function or production semiconductor/customer-support experience.
+I ran repeated evaluations using existing models and llama.cpp, classified failure modes, compared diagnostic conditions, and interpreted the results. This repository contains the paper, evaluation code, and aggregate results.
 
 ## Main observations
 
@@ -32,7 +32,7 @@ Python 3.10+ and the standard library are sufficient.
 python3 -B scripts/verify_public_results.py
 ~~~
 
-This checks table arithmetic, agreement with aggregate projections, and hashes of the published paper and archived source/figure files. It also parses archived Python files for syntax without importing or running them. The checker was added for this public repository; it is not a historical experiment test or an inference rerun.
+This checks table arithmetic, agreement with aggregate projections, and hashes of the paper and archived source/figure files. It also parses archived Python files for syntax without importing or running them. Raw-run rescoring and GPU inference require a separate experiment environment.
 
 ## Interpretation boundaries
 

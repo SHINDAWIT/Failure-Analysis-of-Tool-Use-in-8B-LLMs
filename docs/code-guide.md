@@ -1,6 +1,6 @@
 # 코드 안내
 
-소스는 제공된 연구 자료의 스냅샷입니다. 기존 Python 파일은 바이트를 유지해 공개했으며 파일별 해시는 [공개 manifest](../publication_manifest.json)에 있습니다. 이번 공개를 위해 추가한 문서·검산 도구와 기존 연구 구현을 구분했습니다.
+평가에 사용한 Python 코드와 실행·집계 스크립트의 구조를 설명합니다. 연구 소스는 원본 그대로 보존했으며, 파일별 해시와 문서·검산 도구의 추가 내역은 [manifest](../publication_manifest.json)에 기록했습니다.
 
 ## 요청부터 결과 저장까지
 
@@ -16,7 +16,7 @@ scripts/run_frontloop_when2call.py 또는 run_frontloop_loc.py
 
 ## 주요 파일과 함수
 
-| 구성 | 파일·함수 | 확인할 역할 |
+| 구성 | 파일·함수 | 역할 |
 | --- | --- | --- |
 | 모델 요청 | [client.py](../experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/client.py), LlamaServerClient.chat(), combine_output() | HTTP JSON 요청, seed·온도·생성 길이 전달, 출력·추론 채널 처리 |
 | When2Call 실행 | [harness.py](../experiments/monkeys-passk-frontloop/monkeys_passk_frontloop/harness.py), run_when2call_attempt() | 시도별 새 요청, thinking 설정, 오류·형식·행동 결과 기록 |
@@ -30,12 +30,12 @@ scripts/run_frontloop_when2call.py 또는 run_frontloop_loc.py
 | Loc 집계 | [score_loc_arms.py](../scripts/score_loc_arms.py), block(), main() | strict 29문항 기록과 공통 28문항 비교 구분, 종료·정답 지표 집계 |
 | When2Call 비교 | [score_arms_when2call.py](../scripts/score_arms_when2call.py), block(), paired_delta() | 문항별 8회 평균과 짝지은 부트스트랩 비교 |
 
-## 구현을 해석할 때의 구체적 경계
+## 구현 세부사항과 실행 조건
 
-1. **파서 복구 범위:** 숫자 뒤 큰따옴표 제거와 후행 쉼표 제거가 모두 repair_json_text()에 있습니다. 논문 설명과 이 스냅샷의 범위 차이를 유지합니다.
+1. **파서 복구 범위:** 숫자 뒤 큰따옴표 제거와 후행 쉼표 제거가 모두 repair_json_text()에 있습니다. 논문은 숫자 뒤 큰따옴표 오류를 중심으로 진단 조건을 설명합니다.
 2. **호출 수:** Loc 루프에는 도구 실행 상한 8회와 모델 응답 반복 상한 10회가 따로 있습니다. final을 검사한 뒤 추가 도구 요청의 한도를 판단합니다.
 3. **도구 목록:** JSON 프롬프트는 네 도구, native XML 프롬프트는 세 탐색 도구를 제시합니다. 공통 검증 스키마에는 run도 있으므로 프롬프트 목록과 파서 허용 집합을 동일시하지 않습니다.
-4. **테스트 실행:** LocEnv.execute()의 run 분기는 테스트 미구성 응답을 반환합니다. run이라는 이름이 있다는 사실은 실제 테스트 실행·통과의 근거가 아닙니다.
+4. **테스트 실행:** LocEnv.execute()의 run 분기는 테스트 미구성 응답을 반환하며, 실제 벤치마크 테스트를 실행하지 않습니다.
 5. **저장 한계:** Loc append_row()는 전체 outputs 대신 마지막 출력의 앞 1,500자와 단계 메타데이터를 저장합니다. 실행 중 이력에 넣은 모든 도구 반환 본문이 파일에 보존되는 것은 아닙니다.
 6. **서버 모델:** CLI의 --model은 프로필·기록 라벨을 선택합니다. 클라이언트가 서버에 모델 로딩을 지시하거나 실제 가중치와 라벨의 일치를 검증하는 기능은 아닙니다.
 
@@ -45,4 +45,4 @@ scripts/run_frontloop_when2call.py 또는 run_frontloop_loc.py
 
 [verify_public_results.py](../scripts/verify_public_results.py)는 이번 저장소 공개를 위해 추가한 독립 검산 도구입니다. 연구 코드를 import하거나 모델·서버·벤치마크에 연결하지 않습니다.
 
-기존 [test_native_parser_symmetry.py](../scripts/test_native_parser_symmetry.py)는 작성된 입력 사례의 JSON/native 수용·거부 비교를, [test_frontloop_p0.py](../scripts/test_frontloop_p0.py)는 fixture 분리와 행동 평가·스키마 검사를 담고 있습니다. 두 파일은 원본 그대로 보존했으며 이번 공개 과정에서 테스트를 실행하지 않았습니다. 특히 P0 테스트는 로컬 데이터 준비와 fixture 작성을 요구합니다. 코드에 포함된 테스트 의도와 실제 테스트 통과 이력은 구분합니다.
+기존 [test_native_parser_symmetry.py](../scripts/test_native_parser_symmetry.py)는 입력 사례의 JSON/native 수용·거부를 비교하고, [test_frontloop_p0.py](../scripts/test_frontloop_p0.py)는 fixture 분리와 행동 평가·스키마를 검사합니다. P0 테스트에는 로컬 데이터와 fixture 준비가 필요합니다. 두 테스트의 실행은 공개 수치 검산 명령에 포함되지 않습니다.
